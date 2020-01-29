@@ -1,0 +1,107 @@
+{
+ "actions": [],
+ "autoname": "format:ToDo-{due_date}-{business_name}------{#####}",
+ "creation": "2020-01-27 00:51:26.061816",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "req_date",
+  "via_medium",
+  "business_name",
+  "column_break_4",
+  "type",
+  "due_date",
+  "status",
+  "section_break_8",
+  "description"
+ ],
+ "fields": [
+  {
+   "description": "Required Date of Payroll To Do",
+   "fieldname": "req_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Req. Date",
+   "reqd": 1
+  },
+  {
+   "description": "To-Do received via",
+   "fieldname": "via_medium",
+   "fieldtype": "Select",
+   "label": "Via Medium",
+   "options": "\nEmail\nWhatsApp\nPhone\nOthers",
+   "reqd": 1
+  },
+  {
+   "description": "Business Legal Name",
+   "fieldname": "business_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Business Name",
+   "options": "Store Information",
+   "reqd": 1
+  },
+  {
+   "description": "Payroll To Do Type",
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "label": "Type",
+   "options": "\nPeriodic\nAdhoc\nOne Time\nOthers",
+   "reqd": 1
+  },
+  {
+   "description": "Payroll To Do Due Date",
+   "fieldname": "due_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Due Date",
+   "reqd": 1
+  },
+  {
+   "description": "Payroll To Do Description",
+   "fieldname": "description",
+   "fieldtype": "Small Text",
+   "label": "Description"
+  },
+  {
+   "description": "Payroll To Do Status",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "\nActive\nInactive\nOpen\nClose",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "section_break_8",
+   "fieldtype": "Section Break"
+  }
+ ],
+ "links": [],
+ "modified": "2020-01-27 01:20:38.878215",
+ "modified_by": "Administrator",
+ "module": "Payroll",
+ "name": "To Do Exception",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}
