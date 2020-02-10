@@ -1,0 +1,315 @@
+{
+ "actions": [],
+ "allow_events_in_timeline": 1,
+ "allow_rename": 1,
+ "autoname": "format:{store_name}-{date}-{#####}",
+ "creation": "2020-02-09 23:32:55.355958",
+ "doctype": "DocType",
+ "document_type": "Setup",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "schedule_payroll_section",
+  "status",
+  "store_name",
+  "column_break_2",
+  "account_no",
+  "section_break_4",
+  "date",
+  "payroll_schedule",
+  "exception",
+  "column_break_7",
+  "pay_start_date",
+  "pay_end_date",
+  "check_date",
+  "process_payroll_section",
+  "direct_deposit",
+  "no_of_direct_deposit",
+  "no_of_pay_checks",
+  "total_no_of_pay_checks",
+  "pay_stubs",
+  "checks",
+  "column_break_18",
+  "remarks",
+  "qc_payroll_section",
+  "abc_check",
+  "dispatch_payroll_section",
+  "print_report",
+  "tracking_no",
+  "column_break_38",
+  "mode_of_delivery",
+  "dispatched_remarks",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "schedule_payroll_section",
+   "fieldtype": "Section Break",
+   "label": " Schedule Payroll"
+  },
+  {
+   "default": "Open",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "in_standard_filter": 1,
+   "label": "Status",
+   "no_copy": 1,
+   "options": "\nOpen\nInitialized\nProcessed\nQC\nDispatched\nFinalized",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "description": "Business Legal Name",
+   "fieldname": "store_name",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Store Name",
+   "options": "Store Information",
+   "read_only_depends_on": "eval:doc.status !== 'Open'",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Bank Account Number",
+   "fetch_from": "store_name.account_no",
+   "fieldname": "account_no",
+   "fieldtype": "Data",
+   "label": "Account No",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_4",
+   "fieldtype": "Section Break"
+  },
+  {
+   "default": "Today",
+   "description": "Current Date",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Date",
+   "read_only_depends_on": "eval:doc.status !== 'Open'",
+   "reqd": 1
+  },
+  {
+   "description": "Payroll Schedule (Weekly, Biweekly, Monthly, etc.)",
+   "fieldname": "payroll_schedule",
+   "fieldtype": "Select",
+   "label": "Payroll Schedule",
+   "options": "\nWeekly\nBiweekly\nSemi-Monthly\nMonthly\nQuarterly\nTrio-Yearly\nHalf-Yearly\nYearly",
+   "read_only_depends_on": "eval:doc.status !== 'Open'",
+   "reqd": 1
+  },
+  {
+   "description": "To Do Exception",
+   "fieldname": "exception",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "label": "Exception",
+   "options": "To Do Exception",
+   "read_only_depends_on": "eval:doc.status !== 'Open'"
+  },
+  {
+   "fieldname": "column_break_7",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Pay Period Start Date",
+   "fieldname": "pay_start_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Pay Start Date",
+   "read_only_depends_on": "eval:doc.status !== 'Open'",
+   "reqd": 1
+  },
+  {
+   "description": "Pay Period End Date",
+   "fieldname": "pay_end_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Pay End Date",
+   "read_only_depends_on": "eval:doc.status !== 'Open'",
+   "reqd": 1
+  },
+  {
+   "description": "Check Date",
+   "fieldname": "check_date",
+   "fieldtype": "Date",
+   "label": "Check Date",
+   "read_only_depends_on": "eval:doc.status !== 'Open'",
+   "reqd": 1
+  },
+  {
+   "depends_on": "eval:doc.status !== 'Open'",
+   "fieldname": "process_payroll_section",
+   "fieldtype": "Section Break",
+   "label": " Process (Payroll)"
+  },
+  {
+   "default": "0",
+   "description": "Store's Direct Deposit Status",
+   "fieldname": "direct_deposit",
+   "fieldtype": "Check",
+   "label": "Direct Deposit",
+   "read_only_depends_on": "eval:doc.status !== 'Open' && doc.status !== 'Processed'"
+  },
+  {
+   "depends_on": "eval:doc.direct_deposit == 1",
+   "fieldname": "no_of_direct_deposit",
+   "fieldtype": "Int",
+   "label": "No. of Direct Deposit",
+   "read_only_depends_on": "eval:doc.status !== 'Open' && doc.status !== 'Processed'"
+  },
+  {
+   "fieldname": "no_of_pay_checks",
+   "fieldtype": "Int",
+   "label": "No. of Pay Checks",
+   "read_only_depends_on": "eval:doc.status !== 'Open' && doc.status !== 'Processed'"
+  },
+  {
+   "fieldname": "total_no_of_pay_checks",
+   "fieldtype": "Int",
+   "label": "Total No. of Pay Checks",
+   "read_only": 1
+  },
+  {
+   "fieldname": "pay_stubs",
+   "fieldtype": "Int",
+   "label": "Pay Stubs",
+   "read_only_depends_on": "eval:doc.status !== 'Open' && doc.status !== 'Processed'"
+  },
+  {
+   "fieldname": "checks",
+   "fieldtype": "Int",
+   "label": "Checks",
+   "read_only_depends_on": "eval:doc.status !== 'Open' && doc.status !== 'Processed'"
+  },
+  {
+   "fieldname": "column_break_18",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Remarks or Reminder if any",
+   "fieldname": "remarks",
+   "fieldtype": "Text Editor",
+   "label": "Remarks",
+   "read_only_depends_on": "eval:doc.status !== 'Open' && doc.status !== 'Processed'"
+  },
+  {
+   "depends_on": "eval:doc.status !== 'Open' && doc.status !== 'Processed'",
+   "fieldname": "qc_payroll_section",
+   "fieldtype": "Section Break",
+   "label": "QC Payroll"
+  },
+  {
+   "default": "0",
+   "fieldname": "abc_check",
+   "fieldtype": "Check",
+   "label": "Lorem ipsum dolor sit amet, consectetuer?",
+   "read_only_depends_on": "eval:doc.status !== 'Open' && doc.status !== 'Processed' && doc.status !== 'QC'"
+  },
+  {
+   "depends_on": "eval:doc.status !== 'Open' && doc.status !== 'Processed' && doc.status !== 'QC'",
+   "fieldname": "dispatch_payroll_section",
+   "fieldtype": "Section Break",
+   "label": " Dispatch (Payroll)"
+  },
+  {
+   "fieldname": "print_report",
+   "fieldtype": "Select",
+   "label": "Print Report?",
+   "mandatory_depends_on": "eval:doc.status === 'Dispatched'",
+   "options": "\nYes\nNo\nNot Applicable"
+  },
+  {
+   "description": "Courier Mail Tacking Number",
+   "fieldname": "tracking_no",
+   "fieldtype": "Data",
+   "label": "Tracking No.",
+   "mandatory_depends_on": "eval:doc.status === 'Dispatched'"
+  },
+  {
+   "fieldname": "column_break_38",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "mode_of_delivery",
+   "fieldtype": "Select",
+   "label": "Mode of Delivery",
+   "mandatory_depends_on": "eval:doc.status === 'Dispatched'",
+   "options": "\nFedEx\nTCS\nPakPost\nPickup\nOther"
+  },
+  {
+   "description": "Remarks or Reminder if any",
+   "fieldname": "dispatched_remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Scheduled Payroll",
+   "print_hide": 1,
+   "read_only": 1
+  }
+ ],
+ "hide_toolbar": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2020-02-09 23:33:03.528730",
+ "modified_by": "Administrator",
+ "module": "Payroll",
+ "name": "Scheduled Payroll",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Payroll Supervisor",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Payroll Assistant Supervisor",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "store_name",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

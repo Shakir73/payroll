@@ -9,9 +9,9 @@ def get_data():
         "items": [
             {
               "type": "doctype",
-              "name": "Schedule Payroll",
+              "name": "Scheduled Payroll",
               "onboard": 1,
-              "label": _("Schedule Payroll"),
+              "label": _("Scheduled Payroll"),
               "description": _("Articles which members issue and return."),
             },
             {
