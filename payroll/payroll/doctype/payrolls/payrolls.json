@@ -262,11 +262,12 @@
   },
   {
    "bold": 1,
+   "description": "Select Payroll Type (Scheduled / Unschedule )",
    "fieldname": "select_payroll_type",
    "fieldtype": "Select",
    "in_list_view": 1,
    "in_standard_filter": 1,
-   "label": "Select Payroll Type",
+   "label": "Payroll Type",
    "options": "\nScheduled Payroll\nUnscheduled Payroll",
    "read_only_depends_on": "eval:doc.status !== 'Initialize'",
    "reqd": 1
@@ -274,7 +275,7 @@
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2020-02-11 04:18:15.020351",
+ "modified": "2020-02-11 05:59:12.766624",
  "modified_by": "Administrator",
  "module": "Payroll",
  "name": "Payrolls",
