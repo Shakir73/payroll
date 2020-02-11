@@ -9,25 +9,18 @@ def get_data():
         "items": [
             {
               "type": "doctype",
-              "name": "Scheduled Payroll",
+              "name": "Payrolls",
               "onboard": 1,
-              "label": _("Scheduled Payroll"),
+              "label": _("Payroll"),
               "description": _("Articles which members issue and return."),
             },
             {
               "type": "doctype",
               "name": "To Do Exception",
-              "onboard": 1,
+              
               "label": _("To Do (Exception) Table for Payroll"),
               "description": _("Articles which members issue and return."),
             },
-
-            # {
-            #   "type": "doctype",
-            #   "name": "Managing Partner Information",
-            #   "label": _("Managing Partner Information"),
-            #   "description": _("Articles which members issue and return."),
-            # },
             # {
             #   "type": "doctype",
             #   "name": "District Manager",
