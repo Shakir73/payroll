@@ -48,14 +48,13 @@
    "label": " Schedule Payroll"
   },
   {
-   "default": "Open",
+   "default": "Initialized",
    "fieldname": "status",
    "fieldtype": "Select",
-   "hidden": 1,
    "in_standard_filter": 1,
    "label": "Status",
    "no_copy": 1,
-   "options": "\nOpen\nInitialized\nProcessed\nQC\nDispatched\nFinalized",
+   "options": "\nInitialized\nProcessed\nQC\nDispatched\nFinalized",
    "print_hide": 1,
    "read_only": 1
   },
@@ -66,7 +65,7 @@
    "ignore_user_permissions": 1,
    "label": "Store Name",
    "options": "Store Information",
-   "read_only_depends_on": "eval:doc.status !== 'Open'",
+   "read_only_depends_on": "eval:doc.status !== 'Initialized'",
    "reqd": 1
   },
   {
@@ -93,7 +92,7 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Date",
-   "read_only_depends_on": "eval:doc.status !== 'Open'",
+   "read_only_depends_on": "eval:doc.status !== 'Initialized'",
    "reqd": 1
   },
   {
@@ -102,7 +101,7 @@
    "fieldtype": "Select",
    "label": "Payroll Schedule",
    "options": "\nWeekly\nBiweekly\nSemi-Monthly\nMonthly\nQuarterly\nTrio-Yearly\nHalf-Yearly\nYearly",
-   "read_only_depends_on": "eval:doc.status !== 'Open'",
+   "read_only_depends_on": "eval:doc.status !== 'Initialized'",
    "reqd": 1
   },
   {
@@ -112,7 +111,7 @@
    "ignore_user_permissions": 1,
    "label": "Exception",
    "options": "To Do Exception",
-   "read_only_depends_on": "eval:doc.status !== 'Open'"
+   "read_only_depends_on": "eval:doc.status !== 'Initialized'"
   },
   {
    "fieldname": "column_break_7",
@@ -125,7 +124,7 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Pay Start Date",
-   "read_only_depends_on": "eval:doc.status !== 'Open'",
+   "read_only_depends_on": "eval:doc.status !== 'Initialized'",
    "reqd": 1
   },
   {
@@ -135,7 +134,7 @@
    "in_list_view": 1,
    "in_standard_filter": 1,
    "label": "Pay End Date",
-   "read_only_depends_on": "eval:doc.status !== 'Open'",
+   "read_only_depends_on": "eval:doc.status !== 'Initialized'",
    "reqd": 1
   },
   {
@@ -143,11 +142,11 @@
    "fieldname": "check_date",
    "fieldtype": "Date",
    "label": "Check Date",
-   "read_only_depends_on": "eval:doc.status !== 'Open'",
+   "read_only_depends_on": "eval:doc.status !== 'Initialized'",
    "reqd": 1
   },
   {
-   "depends_on": "eval:doc.status !== 'Open'",
+   "depends_on": "eval:doc.status !== 'Initialized'",
    "fieldname": "process_payroll_section",
    "fieldtype": "Section Break",
    "label": " Process (Payroll)"
@@ -158,20 +157,20 @@
    "fieldname": "direct_deposit",
    "fieldtype": "Check",
    "label": "Direct Deposit",
-   "read_only_depends_on": "eval:doc.status !== 'Open' && doc.status !== 'Processed'"
+   "read_only_depends_on": "eval:doc.status !== 'Initailized' && doc.status !== 'Processed'"
   },
   {
    "depends_on": "eval:doc.direct_deposit == 1",
    "fieldname": "no_of_direct_deposit",
    "fieldtype": "Int",
    "label": "No. of Direct Deposit",
-   "read_only_depends_on": "eval:doc.status !== 'Open' && doc.status !== 'Processed'"
+   "read_only_depends_on": "eval:doc.status !== 'Initialized' && doc.status !== 'Processed'"
   },
   {
    "fieldname": "no_of_pay_checks",
    "fieldtype": "Int",
    "label": "No. of Pay Checks",
-   "read_only_depends_on": "eval:doc.status !== 'Open' && doc.status !== 'Processed'"
+   "read_only_depends_on": "eval:doc.status !== 'Initialized' && doc.status !== 'Processed'"
   },
   {
    "fieldname": "total_no_of_pay_checks",
@@ -183,13 +182,13 @@
    "fieldname": "pay_stubs",
    "fieldtype": "Int",
    "label": "Pay Stubs",
-   "read_only_depends_on": "eval:doc.status !== 'Open' && doc.status !== 'Processed'"
+   "read_only_depends_on": "eval:doc.status !== 'Initialized' && doc.status !== 'Processed'"
   },
   {
    "fieldname": "checks",
    "fieldtype": "Int",
    "label": "Checks",
-   "read_only_depends_on": "eval:doc.status !== 'Open' && doc.status !== 'Processed'"
+   "read_only_depends_on": "eval:doc.status !== 'Initialized' && doc.status !== 'Processed'"
   },
   {
    "fieldname": "column_break_18",
@@ -200,10 +199,10 @@
    "fieldname": "remarks",
    "fieldtype": "Text Editor",
    "label": "Remarks",
-   "read_only_depends_on": "eval:doc.status !== 'Open' && doc.status !== 'Processed'"
+   "read_only_depends_on": "eval:doc.status !== 'Initialized' && doc.status !== 'Processed'"
   },
   {
-   "depends_on": "eval:doc.status !== 'Open' && doc.status !== 'Processed'",
+   "depends_on": "eval:doc.status !== 'Initialized' && doc.status !== 'Processed'",
    "fieldname": "qc_payroll_section",
    "fieldtype": "Section Break",
    "label": "QC Payroll"
@@ -213,10 +212,10 @@
    "fieldname": "abc_check",
    "fieldtype": "Check",
    "label": "Lorem ipsum dolor sit amet, consectetuer?",
-   "read_only_depends_on": "eval:doc.status !== 'Open' && doc.status !== 'Processed' && doc.status !== 'QC'"
+   "read_only_depends_on": "eval:doc.status !== 'Initialized' && doc.status !== 'Processed' && doc.status !== 'QC'"
   },
   {
-   "depends_on": "eval:doc.status !== 'Open' && doc.status !== 'Processed' && doc.status !== 'QC'",
+   "depends_on": "eval:doc.status !== 'Initialized' && doc.status !== 'Processed' && doc.status !== 'QC'",
    "fieldname": "dispatch_payroll_section",
    "fieldtype": "Section Break",
    "label": " Dispatch (Payroll)"
@@ -265,7 +264,7 @@
  "hide_toolbar": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2020-02-09 23:33:03.528730",
+ "modified": "2020-02-10 19:55:15.366060",
  "modified_by": "Administrator",
  "module": "Payroll",
  "name": "Scheduled Payroll",
