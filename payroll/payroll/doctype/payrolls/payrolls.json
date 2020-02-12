@@ -15,14 +15,16 @@
   "store_name",
   "column_break_2",
   "account_no",
+  "qb_code",
   "section_break_4",
   "date",
   "payroll_schedule",
-  "exception",
   "column_break_7",
   "pay_start_date",
   "pay_end_date",
   "check_date",
+  "to_do_exception_section",
+  "exception",
   "process_payroll_section",
   "direct_deposit",
   "no_of_direct_deposit",
@@ -107,9 +109,7 @@
   {
    "description": "To Do Exception",
    "fieldname": "exception",
-   "fieldtype": "Link",
-   "ignore_user_permissions": 1,
-   "label": "Exception",
+   "fieldtype": "Table",
    "options": "To Do Exception",
    "read_only_depends_on": "eval:doc.status !== 'Initialize'"
   },
@@ -271,11 +271,24 @@
    "options": "\nScheduled Payroll\nUnscheduled Payroll",
    "read_only_depends_on": "eval:doc.status !== 'Initialize'",
    "reqd": 1
+  },
+  {
+   "description": "QuickBooks Code",
+   "fetch_from": "store_name.quickbooks_code",
+   "fieldname": "qb_code",
+   "fieldtype": "Data",
+   "label": "QB Code",
+   "read_only": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "to_do_exception_section",
+   "fieldtype": "Section Break"
   }
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2020-02-11 05:59:12.766624",
+ "modified": "2020-02-11 22:02:43.448319",
  "modified_by": "Administrator",
  "module": "Payroll",
  "name": "Payrolls",

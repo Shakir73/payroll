@@ -4,35 +4,16 @@ from frappe import _
 def get_data():
     return [
       {
-        "label":_("Setup"),
+        "label":_(""),
         "icon": "octicon octicon-file-directory",
         "items": [
             {
               "type": "doctype",
               "name": "Payrolls",
               "onboard": 1,
-              "label": _("Payroll"),
+              "label": _("Scheduled / Unscheduled Payrolls"),
               "description": _("Articles which members issue and return."),
-            },
-            {
-              "type": "doctype",
-              "name": "To Do Exception",
-              
-              "label": _("To Do (Exception) Table for Payroll"),
-              "description": _("Articles which members issue and return."),
-            },
-            # {
-            #   "type": "doctype",
-            #   "name": "District Manager",
-            #   "label": _("District Manager"),
-            #   "description": _("Articles which members issue and return."),
-            # },
-            # {
-            #   "type": "doctype",
-            #   "name": "Shift Manager",
-            #   "label": _("Shift Manager"),
-            #   "description": _("Articles which members issue and return."),
-            # },
+            }
 
           ]
       }
