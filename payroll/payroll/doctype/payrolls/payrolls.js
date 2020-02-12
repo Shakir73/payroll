@@ -20,7 +20,7 @@ frappe.ui.form.on('Payrolls', {
 				frm.set_value('pay_end_date', frappe.datetime.add_days(frm.doc.pay_start_date , 7));
 			} else if (frm.doc.payroll_schedule === 'Biweekly') {
 				frm.set_value('pay_end_date', frappe.datetime.add_days(frm.doc.pay_start_date , 14));
-			}else if (frm.doc.payroll_schedule === 'Semi Monthly') {
+			}else if (frm.doc.payroll_schedule === 'Semi-Monthly') {
 				frm.set_value('pay_end_date', frappe.datetime.add_days(frm.doc.pay_start_date , 15));
 			}
 			
@@ -48,7 +48,7 @@ frappe.ui.form.on('Payrolls', {
 				frm.set_value('pay_start_date', frappe.datetime.add_days(frm.doc.pay_end_date , -7));
 			} else if (frm.doc.payroll_schedule === 'Biweekly') {
 				frm.set_value('pay_start_date', frappe.datetime.add_days(frm.doc.pay_end_date , -14));
-			}else if (frm.doc.payroll_schedule === 'Semi Monthly') {
+			}else if (frm.doc.payroll_schedule === 'Semi-Monthly') {
 				frm.set_value('pay_start_date', frappe.datetime.add_days(frm.doc.pay_end_date , -15));
 			}else if (frm.doc.payroll_schedule === 'Monthly') {
 				frm.set_value('pay_start_date', frappe.datetime.add_months(frm.doc.pay_end_date , -1));
