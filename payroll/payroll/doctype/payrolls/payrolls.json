@@ -1,6 +1,7 @@
 {
  "actions": [],
  "allow_auto_repeat": 1,
+ "allow_events_in_timeline": 1,
  "autoname": "format:{store_name}-{date}------{#####}",
  "creation": "2020-02-11 01:30:50.918349",
  "doctype": "DocType",
@@ -55,7 +56,9 @@
    "hidden": 1,
    "in_standard_filter": 1,
    "label": "status",
+   "no_copy": 1,
    "options": "\nInitialize\nProcess\nQC\nDispatch\nFinalized\nCancelled",
+   "print_hide": 1,
    "read_only": 1
   },
   {
@@ -250,15 +253,6 @@
    "label": "Remarks"
   },
   {
-   "fieldname": "amended_from",
-   "fieldtype": "Link",
-   "label": "Amended From",
-   "no_copy": 1,
-   "options": "Payrolls",
-   "print_hide": 1,
-   "read_only": 1
-  },
-  {
    "description": "Select Payroll Type (Scheduled / Unschedule )",
    "fieldname": "select_payroll_type",
    "fieldtype": "Select",
@@ -285,11 +279,20 @@
    "fieldname": "payroll_schedule_section",
    "fieldtype": "Section Break",
    "label": "Payroll Schedule"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Payrolls",
+   "print_hide": 1,
+   "read_only": 1
   }
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2020-02-12 04:34:10.363978",
+ "modified": "2020-02-13 12:17:14.450346",
  "modified_by": "Administrator",
  "module": "Payroll",
  "name": "Payrolls",
@@ -333,8 +336,6 @@
   }
  ],
  "search_fields": "store_name",
- "show_name_in_global_search": 1,
- "show_preview_popup": 1,
  "sort_field": "modified",
  "sort_order": "DESC",
  "track_changes": 1
