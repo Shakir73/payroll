@@ -13,10 +13,8 @@ frappe.ui.form.on('Payrolls', {
 			frappe.validated = false;
 		}
 	},
-
-	direct_deposit: function(frm) {
-		frm.set_df_property('no_of_direct_deposit', 'read_only', (frm.doc.direct_deposit) ? 0 : 1); // see you next time
-	},
+	
+	
 
 	pay_start_date: function(frm) {
 	// 	if (frm.doc.pay_start_date !== "") {
@@ -130,6 +128,10 @@ frappe.ui.form.on('Payrolls', {
 		}
 	},
 
+	// direct_deposit: function(frm) {
+	// 	frm.set_df_property('no_of_direct_deposit', 'read_only', (frm.doc.direct_deposit) ? 0 : 1); // see you next time
+	// },
+
 	refresh: function(frm) {
 		frm.toggle_display("process_payroll_section", frm.doc.status !== 'Initialize');
 		frm.toggle_display("qc_payroll_section", frm.doc.status !== 'Initialize' && frm.doc.status !== 'Process');
@@ -145,6 +147,11 @@ frappe.ui.form.on('Payrolls', {
 
 		frm.set_df_property("direct_deposit", "read_only", frm.doc.status !== 'Process');
 
+		frm.set_df_property("no_of_direct_deposit", "read_only", (frm.doc.status !== 'Process') ? 1 : 0);
+		
+
+		frm.set_df_property("no_of_pay_checks", "read_only", frm.doc.status !== 'Process');
+
 		
 
 		frm.set_df_property("No. of Pay Checks", "read_only", frm.doc.status !== 'Process');
@@ -154,14 +161,28 @@ frappe.ui.form.on('Payrolls', {
 
 
 		frm.set_df_property("abc_check", "read_only", frm.doc.status !== 'QC');
+		frm.set_df_property("take_out_the_summary_of_payroll", "read_only", frm.doc.status !== 'QC');
+		frm.set_df_property("pay_period_and_check_date", "read_only", frm.doc.status !== 'QC');
+		frm.set_df_property("verification_of_employee_name_and_ssn", "read_only", frm.doc.status !== 'QC');
+		frm.set_df_property("review_hours_pay_rate__salary", "read_only", frm.doc.status !== 'QC');
+		frm.set_df_property("calculate_social_security_and_medicare", "read_only", frm.doc.status !== 'QC');
+		frm.set_df_property("state_withholding", "read_only", frm.doc.status !== 'QC');
+		frm.set_df_property("child_support_garnishment_tax_lien", "read_only", frm.doc.status !== 'QC');
+		frm.set_df_property("total_no_of_paycheckes_and_direct_deposits", "read_only", frm.doc.status !== 'QC');
+		frm.set_df_property("process_direct_deposit", "read_only", frm.doc.status !== 'QC');
 
 
 		frm.set_df_property('print_report', 'reqd', (frm.doc.status === 'Dispatch') ? 1 : 0);
 		frm.set_df_property('tracking_no', 'reqd', (frm.doc.status === 'Dispatch') ? 1 : 0);
 		frm.set_df_property('mode_of_delivery', 'reqd', (frm.doc.status === 'Dispatch') ? 1 : 0);
-	
-		
-		// frm.set_df_property("direct_deposit", "read_only", frm.doc.status === 0);
 
 	},
+
+	// refresh: function(frm) {
+	// 	if (frm.doc.docstatus == 0 && frm.doc.direct_deposit) {
+	// 		frm.set_df_property('no_of_direct_deposit', 'read_only', 0);
+	// 	} else {
+	// 		frm.set_df_property('no_of_direct_deposit', 'read_only', 1);
+	// 	}
+	// }
 });

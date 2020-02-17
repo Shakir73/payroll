@@ -11,6 +11,7 @@ class Payrolls(Document):
 	def validate(self):
 		self.checks_validations()
 		self.start_end_dates_validations()
+		# self.disptach_section()
 
 	def checks_validations(self):
 		if self.no_of_direct_deposit or self.no_of_pay_checks:
@@ -22,4 +23,12 @@ class Payrolls(Document):
 	def start_end_dates_validations(self):
 		if self.pay_start_date > self.pay_end_date:
 			frappe.throw(_('Pay Start Date must be less than Pay End Date!'))
+
+	def on_submit(self):
+		if self.status == 'Finalized' and self.print_report == '':
+			frappe.throw(_('Print Report field should not be blank'))
+		elif self.status == 'Finalized' and self.tracking_no == '':
+			frappe.throw(_('Tracking No field should not be blank'))
+		elif self.status == 'Finalized' and self.mode_of_delivery == '':
+			frappe.throw(_('Mode of Delivery field should not be blank'))
 

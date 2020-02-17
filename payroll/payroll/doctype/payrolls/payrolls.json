@@ -18,16 +18,16 @@
   "section_break_4",
   "exception",
   "payroll_schedule_section",
-  "date",
   "payroll_schedule",
-  "time_unit",
-  "column_break_7",
   "pay_start_date",
   "pay_end_date",
+  "column_break_7",
+  "date",
+  "time_unit",
   "check_date",
   "process_payroll_section",
-  "direct_deposit",
   "no_of_direct_deposit",
+  "direct_deposit",
   "no_of_pay_checks",
   "total_no_of_pay_checks",
   "pay_stubs",
@@ -36,6 +36,16 @@
   "remarks",
   "qc_payroll_section",
   "abc_check",
+  "take_out_the_summary_of_payroll",
+  "pay_period_and_check_date",
+  "verification_of_employee_name_and_ssn",
+  "review_hours_pay_rate__salary",
+  "column_break_33",
+  "calculate_social_security_and_medicare",
+  "state_withholding",
+  "child_support_garnishment_tax_lien",
+  "total_no_of_paycheckes_and_direct_deposits",
+  "process_direct_deposit",
   "dispatch_payroll_section",
   "print_report",
   "tracking_no",
@@ -158,8 +168,7 @@
   {
    "fieldname": "no_of_direct_deposit",
    "fieldtype": "Int",
-   "label": "No. of Direct Deposit",
-   "read_only": 1
+   "label": "No. of Direct Deposit"
   },
   {
    "fieldname": "no_of_pay_checks",
@@ -202,7 +211,7 @@
    "default": "0",
    "fieldname": "abc_check",
    "fieldtype": "Check",
-   "label": "Lorem ipsum dolor sit amet, consectetuer?"
+   "label": "Verification of Bank Account Number"
   },
   {
    "collapsible": 1,
@@ -280,11 +289,69 @@
    "fieldtype": "Select",
    "label": "Time Unit",
    "options": "\nNext Friday\nNext Saturday\nNext Sunday\nNext Monday\nNext Tuesday\nNext Wednesday\nNext Thursday\nAfter 1 day\nAfter 2 days\nAfter 3 days\nAfter 4 days\nAfter 5 days\nAfter 6 days\nAfter 7 days"
+  },
+  {
+   "default": "0",
+   "fieldname": "take_out_the_summary_of_payroll",
+   "fieldtype": "Check",
+   "label": "Take Out the Summary of Payroll"
+  },
+  {
+   "default": "0",
+   "fieldname": "pay_period_and_check_date",
+   "fieldtype": "Check",
+   "label": "Pay Period and Check Date"
+  },
+  {
+   "default": "0",
+   "fieldname": "verification_of_employee_name_and_ssn",
+   "fieldtype": "Check",
+   "label": "Verification of Employee Name and SSN "
+  },
+  {
+   "default": "0",
+   "fieldname": "review_hours_pay_rate__salary",
+   "fieldtype": "Check",
+   "label": "Review Hours, Pay rate / Salary"
+  },
+  {
+   "default": "0",
+   "fieldname": "calculate_social_security_and_medicare",
+   "fieldtype": "Check",
+   "label": "Calculate Social Security and Medicare"
+  },
+  {
+   "default": "0",
+   "fieldname": "state_withholding",
+   "fieldtype": "Check",
+   "label": "State withholding"
+  },
+  {
+   "default": "0",
+   "fieldname": "child_support_garnishment_tax_lien",
+   "fieldtype": "Check",
+   "label": "Child Support-Garnishment-Tax Lien"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_no_of_paycheckes_and_direct_deposits",
+   "fieldtype": "Check",
+   "label": "Total No of Paycheckes and Direct Deposits (as per payroll info sheet)"
+  },
+  {
+   "default": "0",
+   "fieldname": "process_direct_deposit",
+   "fieldtype": "Check",
+   "label": "Process direct deposit"
+  },
+  {
+   "fieldname": "column_break_33",
+   "fieldtype": "Column Break"
   }
  ],
  "is_submittable": 1,
  "links": [],
- "modified": "2020-02-15 12:29:23.586742",
+ "modified": "2020-02-16 19:30:11.233924",
  "modified_by": "Administrator",
  "module": "Payroll",
  "name": "Payrolls",
