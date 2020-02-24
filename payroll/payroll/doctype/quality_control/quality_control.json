@@ -1,0 +1,165 @@
+{
+ "actions": [],
+ "autoname": "field:store_name",
+ "creation": "2020-02-17 19:23:10.093137",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "quality_control_section",
+  "date",
+  "qc_status",
+  "column_break_2",
+  "store_name",
+  "qc_payroll_section",
+  "abc_check",
+  "take_out_the_summary_of_payroll",
+  "pay_period_and_check_date",
+  "verification_of_employee_name_and_ssn",
+  "review_hours_pay_rate__salary",
+  "column_break_8",
+  "calculate_social_security_and_medicare",
+  "state_withholding",
+  "child_support_garnishment_tax_lien",
+  "total_no_of_paycheckes_and_direct_deposits",
+  "process_direct_deposit",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Current Date"
+  },
+  {
+   "fieldname": "qc_payroll_section",
+   "fieldtype": "Section Break",
+   "label": "QC Payroll"
+  },
+  {
+   "default": "0",
+   "fieldname": "abc_check",
+   "fieldtype": "Check",
+   "label": "Verification of Bank Account Number"
+  },
+  {
+   "default": "0",
+   "fieldname": "take_out_the_summary_of_payroll",
+   "fieldtype": "Check",
+   "label": "Take Out the Summary of Payroll"
+  },
+  {
+   "default": "0",
+   "fieldname": "pay_period_and_check_date",
+   "fieldtype": "Check",
+   "label": "Pay Period and Check Date"
+  },
+  {
+   "default": "0",
+   "fieldname": "verification_of_employee_name_and_ssn",
+   "fieldtype": "Check",
+   "label": "Verification of Employee Name and SSN"
+  },
+  {
+   "default": "0",
+   "fieldname": "review_hours_pay_rate__salary",
+   "fieldtype": "Check",
+   "label": "Review Hours, Pay rate / Salary"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "calculate_social_security_and_medicare",
+   "fieldtype": "Check",
+   "label": "Calculate Social Security and Medicare"
+  },
+  {
+   "default": "0",
+   "fieldname": "state_withholding",
+   "fieldtype": "Check",
+   "label": "State withholding"
+  },
+  {
+   "default": "0",
+   "fieldname": "child_support_garnishment_tax_lien",
+   "fieldtype": "Check",
+   "label": "Child Support-Garnishment-Tax Lien"
+  },
+  {
+   "default": "0",
+   "fieldname": "total_no_of_paycheckes_and_direct_deposits",
+   "fieldtype": "Check",
+   "label": "Total No of Pay Checks and Direct Deposits (as per payroll info sheet)"
+  },
+  {
+   "default": "0",
+   "fieldname": "process_direct_deposit",
+   "fieldtype": "Check",
+   "label": "Process direct deposit"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Quality Control",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "store_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Store Name",
+   "options": "Store Payrolls",
+   "read_only": 1,
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "fieldname": "column_break_2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "quality_control_section",
+   "fieldtype": "Section Break",
+   "label": "Quality Control"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "Quality Control",
+   "fieldname": "qc_status",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "QC Status",
+   "options": "Initialized\nProcess\nQuality Control\nDispatched"
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2020-02-21 22:12:54.837440",
+ "modified_by": "Administrator",
+ "module": "Payroll",
+ "name": "Quality Control",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

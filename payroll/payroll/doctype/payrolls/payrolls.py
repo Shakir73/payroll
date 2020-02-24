@@ -8,6 +8,19 @@ from frappe import throw, _
 from frappe.model.document import Document
 
 class Payrolls(Document):
+	# from frappe.model.naming import set_name_by_naming_series
+
+	def autoname(self):
+
+		payrolls = frappe.get_list("Payrolls",  filters= {"store_name": self.store_name})
+		naming_series = f'{self.store_name} -- {len([payroll for payroll in payrolls]) + 1}'
+		check_duplicate = frappe.db.sql("select name from tabPayrolls where name = %s", naming_series)
+		if check_duplicate:
+			self.name = f'{self.store_name} -- {len([payroll for payroll in payrolls]) + 2}'
+		else:
+			self.name = naming_series
+		
+
 	def validate(self):
 		self.checks_validations()
 		self.start_end_dates_validations()

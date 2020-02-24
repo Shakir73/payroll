@@ -1,0 +1,182 @@
+{
+ "actions": [],
+ "creation": "2020-02-17 15:02:28.211614",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "schedule_payroll_section",
+  "store_payrolls_status",
+  "select_payroll_type",
+  "store_name",
+  "column_break_6",
+  "account_no",
+  "qb_code",
+  "payroll_schedule_section",
+  "payroll_schedule",
+  "pay_start_date",
+  "pay_end_date",
+  "column_break_13",
+  "date",
+  "time_unit",
+  "check_date",
+  "title",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "schedule_payroll_section",
+   "fieldtype": "Section Break",
+   "label": "Initialize Payroll"
+  },
+  {
+   "description": "Select Payroll Type (Scheduled / Unscheduled )",
+   "fieldname": "select_payroll_type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Payroll Type",
+   "options": "\nScheduled\nUnscheduled",
+   "reqd": 1
+  },
+  {
+   "description": "Business Legal Name",
+   "fieldname": "store_name",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_global_search": 1,
+   "label": "Store Name",
+   "options": "Store Information",
+   "reqd": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Store Payrolls",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_6",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Bank Account Number",
+   "fetch_from": "store_name.account_no",
+   "fieldname": "account_no",
+   "fieldtype": "Data",
+   "label": "Account No",
+   "read_only": 1
+  },
+  {
+   "description": "QuickBooks Code",
+   "fetch_from": "store_name.quickbooks_code",
+   "fieldname": "qb_code",
+   "fieldtype": "Data",
+   "in_global_search": 1,
+   "in_standard_filter": 1,
+   "label": "QB Code",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "collapsible": 1,
+   "fieldname": "payroll_schedule_section",
+   "fieldtype": "Section Break",
+   "label": "Payroll Schedule"
+  },
+  {
+   "description": "Payroll Schedule (Weekly, Biweekly, Monthly, etc.)",
+   "fieldname": "payroll_schedule",
+   "fieldtype": "Select",
+   "label": "Payroll Schedule",
+   "options": "\nWeekly\nBiweekly\nSemi-Monthly\nMonthly\nQuarterly\nTrio-Yearly\nHalf-Yearly\nYearly"
+  },
+  {
+   "description": "Pay Period Start Date",
+   "fieldname": "pay_start_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Pay Start Date",
+   "reqd": 1
+  },
+  {
+   "description": "Pay Period End Date",
+   "fieldname": "pay_end_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Pay End Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_13",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Today",
+   "description": "Current Date",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "label": "Date",
+   "reqd": 1
+  },
+  {
+   "description": "Time Unit for Check Date",
+   "fieldname": "time_unit",
+   "fieldtype": "Select",
+   "label": "Time Unit",
+   "options": "\nNext Friday\nNext Saturday\nNext Sunday\nNext Monday\nNext Tuesday\nNext Wednesday\nNext Thursday\nAfter 1 day\nAfter 2 days\nAfter 3 days\nAfter 4 days\nAfter 5 days\nAfter 6 days\nAfter 7 days"
+  },
+  {
+   "description": "Check Date",
+   "fieldname": "check_date",
+   "fieldtype": "Date",
+   "label": "Check Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "title",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "title"
+  },
+  {
+   "allow_on_submit": 1,
+   "depends_on": "eval:doc.docstatus != 0",
+   "fieldname": "store_payrolls_status",
+   "fieldtype": "Select",
+   "in_filter": 1,
+   "label": "Store Payrolls Status",
+   "no_copy": 1,
+   "options": "Initialized\nProcess\nQuality Control\nDispatched"
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2020-02-23 12:12:29.409730",
+ "modified_by": "Administrator",
+ "module": "Payroll",
+ "name": "Store Payrolls",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "show_name_in_global_search": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

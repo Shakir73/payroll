@@ -1,0 +1,123 @@
+{
+ "actions": [],
+ "autoname": "naming_series:",
+ "creation": "2020-02-18 12:29:31.561816",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "naming_series",
+  "store_name",
+  "req_date",
+  "exception_section",
+  "via_medium",
+  "type",
+  "column_break_4",
+  "due_date",
+  "status",
+  "section_break_8",
+  "description"
+ ],
+ "fields": [
+  {
+   "description": "Required Date of Payroll To Do",
+   "fieldname": "req_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Req. Date",
+   "reqd": 1
+  },
+  {
+   "description": "To-Do received via",
+   "fieldname": "via_medium",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Via Medium",
+   "options": "\nEmail\nWhatsApp\nPhone\nOthers",
+   "reqd": 1
+  },
+  {
+   "description": "Payroll To Do Type",
+   "fieldname": "type",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Type",
+   "options": "\nPeriodic\nAdhoc\nOne Time\nOthers",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_4",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "Payroll To Do Due Date",
+   "fieldname": "due_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Due Date",
+   "reqd": 1
+  },
+  {
+   "description": "Payroll To Do Status",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "\nActive\nInactive\nOpen\nClose",
+   "reqd": 1
+  },
+  {
+   "fieldname": "section_break_8",
+   "fieldtype": "Section Break"
+  },
+  {
+   "description": "Payroll To Do Description",
+   "fieldname": "description",
+   "fieldtype": "Text Editor",
+   "in_list_view": 1,
+   "label": "Description"
+  },
+  {
+   "fieldname": "exception_section",
+   "fieldtype": "Section Break",
+   "label": "Exception"
+  },
+  {
+   "fieldname": "store_name",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Store Name",
+   "options": "Store Payrolls",
+   "reqd": 1
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "label": "Series",
+   "options": "TODO:"
+  }
+ ],
+ "links": [],
+ "modified": "2020-02-18 12:38:50.509421",
+ "modified_by": "Administrator",
+ "module": "Payroll",
+ "name": "Exception",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

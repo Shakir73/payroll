@@ -147,10 +147,10 @@ frappe.ui.form.on('Payrolls', {
 
 		frm.set_df_property("direct_deposit", "read_only", frm.doc.status !== 'Process');
 
-		frm.set_df_property("no_of_direct_deposit", "read_only", (frm.doc.status !== 'Process') ? 1 : 0);
+		frm.set_df_property("no_of_direct_deposit", "read_only", frm.doc.status == 'Process');
 		
 
-		frm.set_df_property("no_of_pay_checks", "read_only", frm.doc.status !== 'Process');
+		// frm.set_df_property("no_of_pay_checks", "read_only", frm.doc.status !== 'Process');
 
 		
 
@@ -158,7 +158,7 @@ frappe.ui.form.on('Payrolls', {
 		frm.set_df_property("pay_stubs", "read_only", frm.doc.status !== 'Process');
 		frm.set_df_property("checks", "read_only", frm.doc.status !== 'Process');
 		frm.set_df_property("remarks", "read_only", frm.doc.status !== 'Process');
-
+		frm.set_df_property('no_of_direct_deposit', 'read_only', frm.doc.status !== 'Process')
 
 		frm.set_df_property("abc_check", "read_only", frm.doc.status !== 'QC');
 		frm.set_df_property("take_out_the_summary_of_payroll", "read_only", frm.doc.status !== 'QC');
@@ -177,6 +177,7 @@ frappe.ui.form.on('Payrolls', {
 		frm.set_df_property('mode_of_delivery', 'reqd', (frm.doc.status === 'Dispatch') ? 1 : 0);
 
 	},
+	
 
 	// refresh: function(frm) {
 	// 	if (frm.doc.docstatus == 0 && frm.doc.direct_deposit) {
@@ -185,4 +186,12 @@ frappe.ui.form.on('Payrolls', {
 	// 		frm.set_df_property('no_of_direct_deposit', 'read_only', 1);
 	// 	}
 	// }
+
+	direct_deposit: function(frm) {
+		if (frm.doc.status == 'Process' && frm.doc.direct_deposit == 1) {
+			frm.set_df_property('no_of_direct_deposit', 'read_only', 0);
+		}else {
+			frm.set_df_property('no_of_direct_deposit', 'read_only', 1);
+		}
+	},
 });

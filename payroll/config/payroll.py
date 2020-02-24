@@ -13,6 +13,13 @@ def get_data():
               "onboard": 1,
               "label": _("Scheduled / Unscheduled Payrolls"),
               "description": _("Articles which members issue and return."),
+            },
+            {
+              "type": "doctype",
+              "name": "Store Payrolls",
+              "onboard": 1,
+              "label": _("Scheduled / Unscheduled Payrolls"),
+              "description": _("Articles which members issue and return."),
             }
 
           ]

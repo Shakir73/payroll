@@ -1,0 +1,135 @@
+{
+ "actions": [],
+ "autoname": "field:store_name",
+ "creation": "2020-02-17 15:27:12.973065",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "process_payroll_section",
+  "process_status",
+  "store_name",
+  "date",
+  "direct_deposit",
+  "no_of_direct_deposit",
+  "no_of_pay_checks",
+  "total_no_of_pay_checks",
+  "pay_stubs",
+  "checks",
+  "column_break_8",
+  "remarks",
+  "amended_from"
+ ],
+ "fields": [
+  {
+   "fieldname": "process_payroll_section",
+   "fieldtype": "Section Break",
+   "label": " Process (Payroll)"
+  },
+  {
+   "default": "0",
+   "description": "Store's Direct Deposit Status",
+   "fieldname": "direct_deposit",
+   "fieldtype": "Check",
+   "label": "Direct Deposit"
+  },
+  {
+   "fieldname": "no_of_direct_deposit",
+   "fieldtype": "Int",
+   "label": "No. of Direct Deposit",
+   "read_only_depends_on": "eval:doc.direct_deposit == 0"
+  },
+  {
+   "fieldname": "no_of_pay_checks",
+   "fieldtype": "Int",
+   "label": "No. of Pay Checks"
+  },
+  {
+   "fieldname": "total_no_of_pay_checks",
+   "fieldtype": "Int",
+   "label": "Total No. of Pay Checks",
+   "read_only": 1
+  },
+  {
+   "fieldname": "pay_stubs",
+   "fieldtype": "Int",
+   "label": "Pay Stubs"
+  },
+  {
+   "fieldname": "checks",
+   "fieldtype": "Int",
+   "label": "Checks"
+  },
+  {
+   "fieldname": "column_break_8",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Text Editor",
+   "label": "Remarks"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Process Payroll",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "description": "Business Legal Name",
+   "fieldname": "store_name",
+   "fieldtype": "Link",
+   "ignore_user_permissions": 1,
+   "in_global_search": 1,
+   "in_list_view": 1,
+   "label": "Store Name",
+   "options": "Store Payrolls",
+   "read_only": 1,
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "default": "Today",
+   "fieldname": "date",
+   "fieldtype": "Date",
+   "hidden": 1,
+   "label": "Date"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "Process",
+   "fieldname": "process_status",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "in_filter": 1,
+   "label": "Process Status",
+   "options": "Initialized\nProcess\nQuality Control\nDispatched"
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2020-02-23 12:12:20.659120",
+ "modified_by": "Administrator",
+ "module": "Payroll",
+ "name": "Process Payroll",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}
